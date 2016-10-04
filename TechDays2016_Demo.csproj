@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C609F28E-CB74-44D0-B9A9-DD9F31EC2732}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TechDays2016_Demo</RootNamespace>
+    <AssemblyName>TechDays2016_Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Should">
+      <HintPath>packages\Should.1.1.20\lib\Should.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest">
+      <HintPath>packages\Xamarin.UITest.1.3.5\lib\Xamarin.UITest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Features\favoriting_a_session.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>favoriting_a_session.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\view_sessions_from_speaker.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>view_sessions_from_speaker.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInitializer.cs" />
+    <Compile Include="Steps\FavoritingASessionSteps.cs" />
+    <Compile Include="Screens\ScreenNames.cs" />
+    <Compile Include="Screens\Home\IHomeScreen.cs" />
+    <Compile Include="Screens\Home\AndroidHomeScreen.cs" />
+    <Compile Include="Features\FeatureBase.cs" />
+    <Compile Include="Steps\CommonSteps.cs" />
+    <Compile Include="Steps\StepsBase.cs" />
+    <Compile Include="Features\FavoritingASessionFeature.cs" />
+    <Compile Include="Screens\Sessions\ISessionsScreen.cs" />
+    <Compile Include="Screens\SessionDetails\ISessionDetailsScreen.cs" />
+    <Compile Include="Screens\SessionDetails\AndroidSessionDetailsScreen.cs" />
+    <Compile Include="Screens\Sessions\AndroidSessionsScreen.cs" />
+    <Compile Include="Features\favoriting_a_session.feature.cs">
+      <DependentUpon>favoriting_a_session.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\view_sessions_from_speaker.feature.cs">
+      <DependentUpon>view_sessions_from_speaker.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ViewSessionsFromSpeakerFeature.cs" />
+    <Compile Include="Steps\ViewSessionsFromSpeakerSteps.cs" />
+    <Compile Include="Screens\Speakers\ISpeakersScreen.cs" />
+    <Compile Include="Screens\Speakers\AndroidSpeakersScreen.cs" />
+    <Compile Include="Screens\SpeakerDetails\ISpeakerDetailsScreen.cs" />
+    <Compile Include="Screens\SpeakerDetails\AndroidSpeakerDetailsScreen.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Steps\" />
+    <Folder Include="Features\" />
+    <Folder Include="Screens\" />
+    <Folder Include="Screens\Home\" />
+    <Folder Include="Screens\Sessions\" />
+    <Folder Include="Screens\SessionDetails\" />
+    <Folder Include="Screens\Speakers\" />
+    <Folder Include="Screens\SpeakerDetails\" />
+  </ItemGroup>
+</Project>

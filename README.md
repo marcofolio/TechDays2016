@@ -1,1 +1,2 @@
 # TechDays2016
+Sources for the presentation held at TechDaysNL 2016 named "*Turn specs into high quality apps*" . It's about combining the power of Specflow and Xamarin.UITest to deliver apps in a ATDD/BDD way.
